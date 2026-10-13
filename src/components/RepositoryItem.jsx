@@ -1,6 +1,8 @@
 import { View, Image, StyleSheet } from 'react-native';
+import * as Linking from 'expo-linking';
 
 import Text from './Text';
+import Button from './Button';
 import theme from '../theme';
 import formatCount from '../utils/formatCount';
 
@@ -41,6 +43,9 @@ const styles = StyleSheet.create({
   stat: {
     alignItems: 'center',
   },
+  button: {
+    marginTop: 15,
+  },
 });
 
 const Stat = ({ label, value }) => (
@@ -50,7 +55,7 @@ const Stat = ({ label, value }) => (
   </View>
 );
 
-const RepositoryItem = ({ item }) => (
+const RepositoryItem = ({ item, showGithubButton }) => (
   <View testID="repositoryItem" style={styles.container}>
     <View style={styles.top}>
       <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
@@ -70,6 +75,11 @@ const RepositoryItem = ({ item }) => (
       <Stat label="Reviews" value={item.reviewCount} />
       <Stat label="Rating" value={item.ratingAverage} />
     </View>
+    {showGithubButton && (
+      <Button style={styles.button} onPress={() => Linking.openURL(item.url)}>
+        Open in GitHub
+      </Button>
+    )}
   </View>
 );
 
