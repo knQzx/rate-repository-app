@@ -28,9 +28,12 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 5,
   },
+  actions: {
+    marginTop: 15,
+  },
 });
 
-const ReviewItem = ({ review }) => (
+const ReviewItem = ({ review, title, children }) => (
   <View style={styles.container}>
     <View style={styles.row}>
       <View style={styles.rating}>
@@ -40,12 +43,13 @@ const ReviewItem = ({ review }) => (
       </View>
       <View style={styles.content}>
         <Text fontWeight="bold" fontSize="subheading">
-          {review.user.username}
+          {title ?? review.user.username}
         </Text>
         <Text color="textSecondary">{format(new Date(review.createdAt), 'dd.MM.yyyy')}</Text>
         {review.text ? <Text style={styles.text}>{review.text}</Text> : null}
       </View>
     </View>
+    {children && <View style={styles.actions}>{children}</View>}
   </View>
 );
 

@@ -10,10 +10,13 @@ const styles = StyleSheet.create({
     padding: 15,
     alignItems: 'center',
   },
+  danger: {
+    backgroundColor: theme.colors.error,
+  },
 });
 
-const Button = ({ children, onPress, style, ...props }) => (
-  <Pressable style={[styles.button, style]} onPress={onPress} {...props}>
+const Button = ({ children, onPress, danger, style, ...props }) => (
+  <Pressable style={[styles.button, danger && styles.danger, style]} onPress={onPress} {...props}>
     <Text color="white" fontWeight="bold">
       {children}
     </Text>

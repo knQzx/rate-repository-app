@@ -37,6 +37,7 @@ const AppBar = () => {
         {me ? (
           <>
             <AppBarTab to="/create-review">Create a review</AppBarTab>
+            <AppBarTab to="/my-reviews">My reviews</AppBarTab>
             <AppBarTab onPress={signOut}>Sign out</AppBarTab>
           </>
         ) : (
