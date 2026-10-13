@@ -23,7 +23,7 @@ const RepositoryInfo = ({ repository }) => (
 
 const SingleRepository = () => {
   const { id } = useParams();
-  const { repository, loading } = useRepository(id);
+  const { repository, fetchMore, loading } = useRepository({ id, first: 8 });
 
   if (!repository) {
     return <Text>{loading ? 'Loading...' : 'Repository not found'}</Text>;
@@ -38,6 +38,8 @@ const SingleRepository = () => {
       keyExtractor={({ id }) => id}
       ListHeaderComponent={() => <RepositoryInfo repository={repository} />}
       ItemSeparatorComponent={ItemSeparator}
+      onEndReached={fetchMore}
+      onEndReachedThreshold={0.5}
     />
   );
 };
