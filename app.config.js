@@ -25,7 +25,16 @@ export default {
   web: {
     favicon: './assets/favicon.png',
   },
+  updates: {
+    url: 'https://u.expo.dev/7d9e256f-6aa9-4b08-92ce-bb29d375bdc1',
+  },
+  runtimeVersion: {
+    policy: 'appVersion',
+  },
   extra: {
     apolloUri: process.env.APOLLO_URI,
+    eas: {
+      projectId: '7d9e256f-6aa9-4b08-92ce-bb29d375bdc1',
+    },
   },
 };
