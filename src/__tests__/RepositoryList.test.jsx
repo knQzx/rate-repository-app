@@ -48,17 +48,17 @@ describe('RepositoryList', () => {
 
       const [first, second] = screen.getAllByTestId('repositoryItem');
 
-      expect(first).toHaveTextContent('jaredpalmer/formik');
-      expect(first).toHaveTextContent('Build forms in React, without the tears');
-      expect(first).toHaveTextContent('TypeScript');
+      expect(first).toHaveTextContent('jaredpalmer/formik', { exact: false });
+      expect(first).toHaveTextContent('Build forms in React, without the tears', { exact: false });
+      expect(first).toHaveTextContent('TypeScript', { exact: false });
       expect(within(first).getByText('1.6k')).toBeDefined();
       expect(within(first).getByText('21.9k')).toBeDefined();
       expect(within(first).getByText('88')).toBeDefined();
       expect(within(first).getByText('3')).toBeDefined();
 
-      expect(second).toHaveTextContent('async-library/react-async');
-      expect(second).toHaveTextContent('Flexible promise-based React data loader');
-      expect(second).toHaveTextContent('JavaScript');
+      expect(second).toHaveTextContent('async-library/react-async', { exact: false });
+      expect(second).toHaveTextContent('Flexible promise-based React data loader', { exact: false });
+      expect(second).toHaveTextContent('JavaScript', { exact: false });
       expect(within(second).getByText('69')).toBeDefined();
       expect(within(second).getByText('1.8k')).toBeDefined();
       expect(within(second).getByText('72')).toBeDefined();

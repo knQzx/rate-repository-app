@@ -4,7 +4,7 @@ import { relayStylePagination } from '@apollo/client/utilities';
 import Constants from 'expo-constants';
 
 const httpLink = createHttpLink({
-  uri: Constants.expoConfig.extra.apolloUri,
+  uri: process.env.EXPO_PUBLIC_APOLLO_URI ?? Constants.expoConfig.extra.apolloUri,
 });
 
 const cache = new InMemoryCache({
